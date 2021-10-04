@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace cd_c_hungryNinja
 {
@@ -6,7 +7,16 @@ namespace cd_c_hungryNinja
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            List<Buffet> mybuffet = new List<Buffet>();
+            Ninja myninja = new Ninja();
+
+            foreach(var item in mybuffet)
+            {
+                if (myninja.IsFull == false)
+                {
+                    myninja.Eat(item);
+                }
+            }
         }
     }
 }
