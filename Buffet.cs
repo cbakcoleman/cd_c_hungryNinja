@@ -23,8 +23,7 @@ namespace cd_c_hungryNinja
         public Food Serve()
         {
             Random rando = new Random();
-            int idx = rando.Next(Menu.Count);
-            return (Menu[idx]);
+            return Menu[rando.Next(Menu.Count)];
         } // END SERVE METHOD
 
         

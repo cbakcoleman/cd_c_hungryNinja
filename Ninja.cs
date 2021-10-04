@@ -12,7 +12,7 @@ namespace cd_c_hungryNinja
         public Ninja()
         {
             calorieIntake = 0;
-            List<Food> FoodHistory = new List<Food>();
+            FoodHistory = new List<Food>();
         } // END NINJA CONSTRUCTOR
 
         public bool IsFull
@@ -20,27 +20,23 @@ namespace cd_c_hungryNinja
             
             get
             {
-                if (calorieIntake > 1200)
-                {
-                    return true;
-                }
-                else 
-                {  
-                    return false;
-                }
+                return calorieIntake > 1200;
             }
         } // END GETTER ISFULL
 
-        public void Eat(Food item)
+        public bool Eat(Food item)
         {
-            if (IsFull == false)
+            if (!IsFull)
             {
                 calorieIntake -= item.Calories;
+                FoodHistory.Add(item);
+                System.Console.WriteLine($"Ninja eats {item.Name}");
             }
-            if (IsFull == true)
+            else
             {
                 System.Console.WriteLine("Ninja is full and can not eat anymore!");
             }
+            return IsFull;
         } // END EAT METHOD
 
     } // END NINJA CLASS

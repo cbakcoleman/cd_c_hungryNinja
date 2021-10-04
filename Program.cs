@@ -7,15 +7,12 @@ namespace cd_c_hungryNinja
     {
         static void Main(string[] args)
         {
-            List<Buffet> mybuffet = new List<Buffet>();
+            Buffet mybuffet = new Buffet();
             Ninja myninja = new Ninja();
 
-            foreach(var item in mybuffet)
+            while(!myninja.IsFull)
             {
-                if (myninja.IsFull == false)
-                {
-                    myninja.Eat(item);
-                }
+                myninja.Eat(mybuffet.Serve());
             }
         }
     }
